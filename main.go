@@ -112,7 +112,7 @@ func init() {
 }
 
 func (cc *CurrentConfig) reloadConfig(confFile string) (err error) {
-	var c = &Config{}
+	c := &Config{}
 
 	yamlFile, err := ioutil.ReadFile(confFile)
 	if err != nil {
@@ -224,11 +224,11 @@ func main() {
 	if showhelp {
 		fmt.Println(os.Args[0] + " [FLAGS]")
 		flag.PrintDefaults()
-		return
+		os.Exit(0)
 	}
 	if showVersion {
-		fmt.Fprintln(os.Stdout, version.Print("srcds_exporter"))
-		return
+		fmt.Fprintln(os.Stdout, version.Print(os.Args[0]))
+		os.Exit(0)
 	}
 	if showCollectors {
 		collectorNames := make(sort.StringSlice, 0, len(collector.Factories))
@@ -318,7 +318,8 @@ func main() {
 		}
 	})
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte(`<html>
+		w.Write([]byte(`<!DOCTYPE html>
+			<html>
 			<head><title>SRCDS Exporter</title></head>
 			<body>
 			<h1>SRCDS Exporter</h1>
