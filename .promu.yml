@@ -1,5 +1,5 @@
 repository:
-    path: github.com/galexrt/srcds_exporter
+    path: github.com/npflan/srcds_exporter
 build:
     flags: -a -tags netgo
     ldflags: |

@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/galexrt/srcds_exporter/parser/models"
+	"github.com/npflan/srcds_exporter/parser/models"
 )
 
 var parseHostnameTests = []struct {

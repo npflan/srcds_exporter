@@ -3,7 +3,7 @@ package collector
 import (
 	"log"
 
-	"github.com/galexrt/srcds_exporter/connector"
+	"github.com/npflan/srcds_exporter/connector"
 )
 
 func getConnections() map[string]*connector.Connection {
